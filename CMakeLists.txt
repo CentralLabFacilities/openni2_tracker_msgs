@@ -7,7 +7,7 @@ project(openni2_tracker_msgs)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED std_msgs geometry_msgs message_generation)
+find_package(catkin REQUIRED std_msgs geometry_msgs message_generation actionlib)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -58,18 +58,17 @@ find_package(catkin REQUIRED std_msgs geometry_msgs message_generation)
 #   Service2.srv
 # )
 
-## Generate actions in the 'action' folder
-# add_action_files(
-#   FILES
-#   Action1.action
-#   Action2.action
-# )
+add_action_files(
+	DIRECTORY action 
+	FILES NiteTracker.action
+)
 
 ## Generate added messages and services with any dependencies listed here
  generate_messages(
    DEPENDENCIES
    geometry_msgs
    std_msgs  # Or other packages containing msgs
+   actionlib_msgs
  )
 
 ################################################
